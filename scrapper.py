@@ -18,7 +18,7 @@ except KeyError as e:
     print(f"Madantory variables are missing {e}")
    
 
-@Client.on_message(filters.command('start')
+@Client.on_message(filters.command('start') & filters.user(OWNER_ID))
 async def start(bot,m):
       try:
           await m.edit("starting")
