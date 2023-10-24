@@ -26,8 +26,13 @@ bot=Client("SCRAPER",API_ID,API_HASH,BOT_TOKEN)
 async def start(bot,m):
       try:
           await m.reply("starting")
+          n=0
           print("Masterolic Member Scrapper Rolling")
-          await bot.get_chat_members(CHANNEL_ID)
+          async for mem in await bot.get_chat_members(CHANNEL_ID):
+                n+=
+                print(n)
+         
+         
       
 
 if 'app1' in locals():
@@ -47,3 +52,4 @@ if 'app3' in locals():
    app3.idle() 
 if 'app4' in locals():
    app4.idle()
+bot.idle()
