@@ -1,1 +1,2 @@
 git+https://github.com/Masterolic/pyrogram.git
+python-dotenv
