@@ -2,7 +2,7 @@ from pyrogram import Client
 from dotenv import load_dotenv
 load_dotenv("config.env")
 from os import environ 
-if environ.get('app1'):
+if environ.get('app1')
    app1=Client(session_string)
 if environ.get('app2'):
    app2=Client(session_string)
@@ -29,4 +29,21 @@ async def start(bot,m):
           print("Masterolic Member Scrapper Rolling")
           await bot.get_chat_members(CHANNEL_ID)
       
-   
+
+if 'app1' in locals():
+   app1.start()
+if 'app2' in locals():
+   app2.start()  
+if 'app3' in locals():
+   app3.start()
+if 'app4' in locals():
+   app4.start()  
+
+if 'app1' in locals():
+   app1.idle()
+if 'app2' in locals():
+   app2.idle()
+if 'app3' in locals():
+   app3.idle() 
+if 'app4' in locals():
+   app4.idle()
