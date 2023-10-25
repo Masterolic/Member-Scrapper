@@ -3,7 +3,7 @@ from pyrogram import filters,enums,errors
 from dotenv import load_dotenv
 load_dotenv("config.env")
 from os import environ 
-if environ.get('app1')
+if environ.get('app1'):
    app1=Client(session_string)
 if environ.get('app2'):
    app2=Client(session_string)
@@ -15,7 +15,7 @@ if environ.get('app4'):
 try:
    OWNER_ID=environ['OWNER_ID']
    CHANNEL_ID=environ['CHANNEL_ID']
-   DUMP_ID=envitorn['DUMP_ID']
+   DUMP_ID=environ['DUMP_ID']
    API_ID=environ['API_ID']
    API_HASH=environ['API_HASH']
    BOT_TOKEN=environ['BOT_TOKEN']
