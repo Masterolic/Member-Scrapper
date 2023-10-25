@@ -1,5 +1,5 @@
 from pyrogram import Client
-from pyrogram import filters enums
+from pyrogram import filters,enums,errors
 from dotenv import load_dotenv
 load_dotenv("config.env")
 from os import environ 
@@ -32,9 +32,11 @@ async def start(bot,m):
           async for mem in await bot.get_chat_members(CHANNEL_ID):
                 n+=
                 print(n)
-         
-         
-      
+                try:
+                   await app1.add_chat_members(chat_id=DUMP_ID,user_ids=mem.user.id)
+                   
+                except errors.UserAlreadyParticipant:
+                   
 
 if 'app1' in locals():
    app1.start()
