@@ -36,7 +36,15 @@ async def start(bot,m):
                    await app1.add_chat_members(chat_id=DUMP_ID,user_ids=mem.user.id)
                    
                 except errors.UserAlreadyParticipant:
-                   
+                    pass
+                    print(f"{mem.user.id} User already Participated")
+                except errors.UserChannelsTooMuch:
+                    pass 
+                    print(f"{mem.user.id} User Already joined In Too Many Channels")
+                except errors.PeerFlood:
+                    pass
+                except Exception as e:
+                   print(e)
 
 if 'app1' in locals():
    app1.start()
