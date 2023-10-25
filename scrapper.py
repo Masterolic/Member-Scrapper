@@ -30,7 +30,7 @@ async def start(bot,m):
           n=0
           print("Masterolic Member Scrapper Rolling")
           async for mem in await bot.get_chat_members(CHANNEL_ID):
-                n+=
+                n+=1
                 print(n)
                 try:
                    await app1.add_chat_members(chat_id=DUMP_ID,user_ids=mem.user.id)
