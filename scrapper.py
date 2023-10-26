@@ -59,7 +59,7 @@ async def add(bot,m):
           async for mem in app1.get_chat_members(CHANNEL_ID):
                 n+=1
                 if "LC" in locals():
-                   if n >= 1000:
+                   if n >= environ['LIMIT_COUNT']:
                       return 
                 print(n)
                 try:
