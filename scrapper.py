@@ -14,7 +14,7 @@ if environ.get('SESSION4'):
 
 try:
    OWNER_ID=environ['OWNER_ID']
-   CHANNEL_ID=environ['CHANNEL_ID']
+ #  CHANNEL_ID=environ['CHANNEL_ID']
    DUMP_ID=environ['DUMP_ID']
    API_ID=environ['API_ID']
    API_HASH=environ['API_HASH']
@@ -24,8 +24,11 @@ except KeyError as e:
     print(f"Madantory variables are missing {e}")
 bot=Client("SCRAPER",API_ID,API_HASH,BOT_TOKEN,in_memory=True)   
 
-@bot.on_message(filters.command('start') & filters.user(OWNER_ID))
+@bot.on_message(filters.command('start'))
 async def start(bot,m):
+      await m.reply("A Simple Telegram Bot For Scraping Members")
+@bot.on_message(filters.command('add') & filters.user(OWNER_ID))
+async def add(bot,m)
       try:
           await m.reply("starting")
           n=0
