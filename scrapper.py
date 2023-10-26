@@ -4,13 +4,13 @@ from dotenv import load_dotenv
 load_dotenv("config.env")
 from os import environ 
 if environ.get('SESSION1'):
-   app1=Client(name="SCRAPPER1", session_string=session_string,in_memory=True)
+   app1=Client(name="SCRAPPER1", session_string=environ['SESSION1'],in_memory=True)
 if environ.get('SESSION2'):
-   app2=Client(name="SCRAPPER2", session_string=session_string,in_memory=True)
+   app2=Client(name="SCRAPPER2", session_string=environ['SESSION2'],in_memory=True)
 if environ.get('SESSION3'):
-   app3=Client(name="SCRAPPER3", session_string=session_string,in_memory=True)
+   app3=Client(name="SCRAPPER3", session_string=environ['SESSION3'],in_memory=True)
 if environ.get('SESSION4'):
-   app4=Client(name="SCRAPPER4", session_string=session_string,in_memory=True)
+   app4=Client(name="SCRAPPER4", session_string=environ['SESSION4'],in_memory=True)
 if environ.get('LIMIT_COUNT'):
    LC=environ['LIMIT_COUNT']
 try:
