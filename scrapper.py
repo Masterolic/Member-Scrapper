@@ -71,7 +71,7 @@ async def start(bot,m):
                                       await app3.add_chat_members(chat_id=DUMP_ID,user_ids=mem.user.id)
                                except errors.PeerFlood:
                                       try:
-                                         if 'app4' in locals()
+                                         if 'app4' in locals():
                                             await app4.add_chat_members(chat_id=DUMP_ID,user_ids=mem.user.id)
                                       except errors.PeerFlood:
                                           await m.reply("your current accounts are limited check @spambot")
