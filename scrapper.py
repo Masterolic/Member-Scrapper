@@ -45,22 +45,23 @@ async def start(bot,m):
                     pass
                 except Exception as e:
                    print(e)
+if __name__ == '__main__':
+   bot.start()
+   bt=print(bt.username)
+   if 'app1' in locals():
+      app1.start()
+   if 'app2' in locals():
+      app2.start()  
+   if 'app3' in locals():
+      app3.start()
+   if 'app4' in locals():
+      app4.start()  
 
 if 'app1' in locals():
-   app1.start()
+      app1.stop()
 if 'app2' in locals():
-   app2.start()  
+   app2.stop()
 if 'app3' in locals():
-   app3.start()
+   app3.stop() 
 if 'app4' in locals():
-   app4.start()  
-
-if 'app1' in locals():
-   app1.idle()
-if 'app2' in locals():
-   app2.idle()
-if 'app3' in locals():
-   app3.idle() 
-if 'app4' in locals():
-   app4.idle()
-bot.idle()
+   app4.stop()
