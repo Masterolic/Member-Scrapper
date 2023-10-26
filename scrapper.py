@@ -1,16 +1,16 @@
 from pyrogram import Client
-from pyrogram import filters,enums,errors
+from pyrogram import filters,enums,errors,idle
 from dotenv import load_dotenv
 load_dotenv("config.env")
 from os import environ 
 if environ.get('SESSION1'):
-   app1=Client(name="SCRAPPER1", session_string=session_string)
+   app1=Client(name="SCRAPPER1", session_string=session_string,in_memory=True)
 if environ.get('SESSION2'):
-   app2=Client(name="SCRAPPER2", session_string=session_string)
+   app2=Client(name="SCRAPPER2", session_string=session_string,in_memory=True)
 if environ.get('SESSION3'):
-   app3=Client(name="SCRAPPER3", session_string=session_string)
+   app3=Client(name="SCRAPPER3", session_string=session_string,in_memory=True)
 if environ.get('SESSION4'):
-   app4=Client(name="SCRAPPER4", session_string=session_string)
+   app4=Client(name="SCRAPPER4", session_string=session_string,in_memory=True)
 
 try:
    OWNER_ID=environ['OWNER_ID']
@@ -19,9 +19,10 @@ try:
    API_ID=environ['API_ID']
    API_HASH=environ['API_HASH']
    BOT_TOKEN=environ['BOT_TOKEN']
+   environ['SESSION1']
 except KeyError as e:
     print(f"Madantory variables are missing {e}")
-bot=Client("SCRAPER",API_ID,API_HASH,BOT_TOKEN)   
+bot=Client("SCRAPER",API_ID,API_HASH,BOT_TOKEN,in_memory=True)   
 
 @bot.on_message(filters.command('start') & filters.user(OWNER_ID))
 async def start(bot,m):
@@ -60,24 +61,27 @@ async def start(bot,m):
                     pass
                     try:
                         await app1.add_chat_members(chat_id=DUMP_ID,user_ids=mem.user.id)
-                    except PeerFlood:
+                    except errors.PeerFlood:
                         if 'app2' in locals():
                            try:
                                await app2.add_chat_members(chat_id=DUMP_ID,user_ids=mem.user.id)
-                           except PeerFlood:
+                           except errors.PeerFlood:
                                try:
                                    if 'app3' in locals():
                                       await app3.add_chat_members(chat_id=DUMP_ID,user_ids=mem.user.id)
-                               except PeerFlood:
+                               except errors.PeerFlood:
                                       try:
                                          if 'app4' in locals()
                                             await app4.add_chat_members(chat_id=DUMP_ID,user_ids=mem.user.id)
-                                      except PeerFlood:
-                                          m.reply("your current accounts are limited check @spambot")
-                           else:
-                           m.reply("your current accounts are limited check @spambot")
+                                      except errors.PeerFlood:
+                                          await m.reply("your current accounts are limited check @spambot")
+                        else:
+                           await m.reply("your current accounts are limited check @spambot")
                 except Exception as e:
                    print(e)
+                   await message.reply(e)
+      except Exception as e:
+          print(e)
 if __name__ == '__main__':
    bot.start()   
    bt=bot.get_me()
@@ -85,19 +89,26 @@ if __name__ == '__main__':
    if 'app1' in locals():
       app1.start()
       ap1=app1.get_me()
-      print(ap1.first_name
+      print(ap1.first_name)
    if 'app2' in locals():
-      app2.start()  
+      app2.start() 
+      ap2=app2.get_me()
+      print(ap2.first_name)
    if 'app3' in locals():
       app3.start()
+      ap3=app3.get_me()
+      print(ap3.first_name)
    if 'app4' in locals():
-      app4.start()  
+      app4.start()
+      ap4=app4.get_me()
+      print(ap4.first_name)
 
 if 'app1' in locals():
-      app1.stop()
+   app1.stop()
 if 'app2' in locals():
    app2.stop()
 if 'app3' in locals():
    app3.stop() 
 if 'app4' in locals():
    app4.stop()
+idle()
