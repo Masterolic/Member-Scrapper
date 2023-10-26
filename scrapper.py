@@ -11,7 +11,8 @@ if environ.get('SESSION3'):
    app3=Client(name="SCRAPPER3", session_string=session_string,in_memory=True)
 if environ.get('SESSION4'):
    app4=Client(name="SCRAPPER4", session_string=session_string,in_memory=True)
-
+if environ.get('LIMIT_COUNT'):
+   LC=environ['LIMIT_COUNT']
 try:
    OWNER_ID=environ['OWNER_ID']
  #  CHANNEL_ID=environ['CHANNEL_ID']
@@ -29,7 +30,7 @@ async def start(bot,m):
       await m.reply(f"Hey {m.from_user.first_name} A Simple Telegram Bot For Scraping Members")
    
 @bot.on_message(filters.command('add') & filters.user(OWNER_ID))
-async def add(bot,m)
+async def add(bot,m):
       try:
           IP=m.text.split(" ",1)
           if len(IP) == 2:
@@ -42,11 +43,24 @@ async def add(bot,m)
              await app1.join_chat(CHANNEL_ID)
              if 'app2' in locals():     
                 await app2.join_chat(CHANNEL_ID)
-          await m.reply("Masterolic Member Scrapper Rolling")
+             if 'app3' in locals():     
+                await app3.join_chat(CHANNEL_ID)
+             if 'app4' in locals():     
+                await app4.join_chat(CHANNEL_ID)
+          except errors.PeerFlood:
+              await m.reply("400: One Or More Your Accounts Can't Join Because Telegram Limited @spambot")
+          except errors.UserChannelsTooMuch:
+              await m.reply("400: One Or More Your Account Had Joined Too Many Groups/Channel")
+          except Exception as e:
+              await m.reply(f"520: Error Occurred {e}")
+          await m.reply("200: Masterolic Member Scrapper Rolling")
           n=0
           print("Masterolic Member Scrapper Rolling")
           async for mem in app1.get_chat_members(CHANNEL_ID):
                 n+=1
+                if "LC" in locals():
+                   if n >= 1000:
+                      return 
                 print(n)
                 try:
                    if n % 4 == 1:
