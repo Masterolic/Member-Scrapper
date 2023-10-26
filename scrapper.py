@@ -3,14 +3,14 @@ from pyrogram import filters,enums,errors
 from dotenv import load_dotenv
 load_dotenv("config.env")
 from os import environ 
-if environ.get('app1'):
-   app1=Client(session_string)
-if environ.get('app2'):
-   app2=Client(session_string)
-if environ.get('app3'):
-   app3=Client(session_string)
-if environ.get('app4'):
-   app4=Client(session_string)
+if environ.get('SESSION1'):
+   app1=Client(name="SCRAPPER1", session_string=session_string)
+if environ.get('SESSION2'):
+   app2=Client(name="SCRAPPER2", session_string=session_string)
+if environ.get('SESSION3'):
+   app3=Client(name="SCRAPPER3", session_string=session_string)
+if environ.get('SESSION4'):
+   app4=Client(name="SCRAPPER4", session_string=session_string)
 
 try:
    OWNER_ID=environ['OWNER_ID']
