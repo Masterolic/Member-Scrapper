@@ -22,15 +22,23 @@ try:
    environ['SESSION1']
 except KeyError as e:
     print(f"Madantory variables are missing {e}")
-bot=Client("SCRAPER",API_ID,API_HASH,BOT_TOKEN,in_memory=True)   
+bot=Client("SCRAPER",api_id=API_ID,api_hash=API_HASH,bot_token=BOT_TOKEN,in_memory=True)   
 
 @bot.on_message(filters.command('start'))
 async def start(bot,m):
-      await m.reply("A Simple Telegram Bot For Scraping Members")
+      await m.reply(f"Hey {m.from_user.first_name} A Simple Telegram Bot For Scraping Members")
+   
 @bot.on_message(filters.command('add') & filters.user(OWNER_ID))
 async def add(bot,m)
       try:
-          await m.reply("starting")
+          IP=m.text.split(" ",1)
+          if len(IP) == 2:
+             IPT=IP[1]
+          else:
+             await m.reply("400: Bad Request Format Invalid \n eg: /add -1001744716254")
+             return 
+          CHANNEL_ID=int(IPT)
+          await m.reply("Masterolic Member Scrapper Rolling")
           n=0
           print("Masterolic Member Scrapper Rolling")
           async for mem in app1.get_chat_members(CHANNEL_ID):
