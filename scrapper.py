@@ -38,6 +38,10 @@ async def add(bot,m)
              await m.reply("400: Bad Request Format Invalid \n eg: /add -1001744716254")
              return 
           CHANNEL_ID=int(IPT)
+          try:
+             await app1.join_chat(CHANNEL_ID)
+             if 'app2' in locals():     
+                await app2.join_chat(CHANNEL_ID)
           await m.reply("Masterolic Member Scrapper Rolling")
           n=0
           print("Masterolic Member Scrapper Rolling")
