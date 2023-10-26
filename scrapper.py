@@ -29,12 +29,27 @@ async def start(bot,m):
           await m.reply("starting")
           n=0
           print("Masterolic Member Scrapper Rolling")
-          async for mem in await bot.get_chat_members(CHANNEL_ID):
+          async for mem in app1.get_chat_members(CHANNEL_ID):
                 n+=1
                 print(n)
                 try:
-                   await app1.add_chat_members(chat_id=DUMP_ID,user_ids=mem.user.id)
-                   
+                   if n % 4 == 1:
+                      await app1.add_chat_members(chat_id=DUMP_ID,user_ids=mem.user.id)
+                   elif n % 4 == 2:
+                      if 'app2' in locals():
+                         await app2.add_chat_members(chat_id=DUMP_ID,user_ids=mem.user.id)
+                      else:
+                         await app1.add_chat_members(chat_id=DUMP_ID,user_ids=mem.user.id)
+                   elif n % 4 == 3: 
+                      if 'app3' in locals():
+                          await app3.add_chat_members(chat_id=DUMP_ID,user_ids=mem.user.id)
+                      else:
+                          await app1.add_chat_members(chat_id=DUMP_ID,user_ids=mem.user.id)
+                   else:
+                       if 'app4' in locals():
+                          await app4.add_chat_members(chat_id=DUMP_ID,user_ids=mem.user.id)
+                       else:
+                            await app1.add_chat_members(chat_id=DUMP_ID,user_ids=mem.user.id)
                 except errors.UserAlreadyParticipant:
                     pass
                     print(f"{mem.user.id} User already Participated")
@@ -46,10 +61,13 @@ async def start(bot,m):
                 except Exception as e:
                    print(e)
 if __name__ == '__main__':
-   bot.start()
-   bt=print(bt.username)
+   bot.start()   
+   bt=bot.get_me()
+   print(bt.username)
    if 'app1' in locals():
       app1.start()
+      ap1=app1.get_me()
+      print(ap1.first_name
    if 'app2' in locals():
       app2.start()  
    if 'app3' in locals():
