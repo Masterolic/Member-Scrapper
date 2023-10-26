@@ -58,15 +58,24 @@ async def start(bot,m):
                     print(f"{mem.user.id} User Already joined In Too Many Channels")
                 except errors.PeerFlood:
                     pass
-                    if n % 4 == 1:
-                       try:
-                           await app2.add_chat_members(chat_id=DUMP_ID,user_ids=mem.user.id)
-                       except PeerFlood:
-                           if 'app2' in locals():
-                              await app2.add_chat_members(chat_id=DUMP_ID,user_ids=mem.user.id)
-                       
-                    else:
-                       m.reply("your current accounts are limited check @spambot")
+                    try:
+                        await app1.add_chat_members(chat_id=DUMP_ID,user_ids=mem.user.id)
+                    except PeerFlood:
+                        if 'app2' in locals():
+                           try:
+                               await app2.add_chat_members(chat_id=DUMP_ID,user_ids=mem.user.id)
+                           except PeerFlood:
+                               try:
+                                   if 'app3' in locals():
+                                      await app3.add_chat_members(chat_id=DUMP_ID,user_ids=mem.user.id)
+                               except PeerFlood:
+                                      try:
+                                         if 'app4' in locals()
+                                            await app4.add_chat_members(chat_id=DUMP_ID,user_ids=mem.user.id)
+                                      except PeerFlood:
+                                          m.reply("your current accounts are limited check @spambot")
+                           else:
+                           m.reply("your current accounts are limited check @spambot")
                 except Exception as e:
                    print(e)
 if __name__ == '__main__':
