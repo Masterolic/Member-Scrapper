@@ -81,7 +81,7 @@ async def add(bot,m):
                           await app4.add_chat_members(chat_id=DUMP_ID,user_ids=mem.user.id)
                        else:
                             await app1.add_chat_members(chat_id=DUMP_ID,user_ids=mem.user.id)
-                await asyncio.sleep(1)
+                   await asyncio.sleep(1)
                 except errors.UserAlreadyParticipant:
                     pass
                     print(f"{mem.user.id} User already Participated")
