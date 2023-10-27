@@ -3,6 +3,7 @@ from pyrogram import filters,enums,errors,idle
 from dotenv import load_dotenv
 load_dotenv("config.env")
 from os import environ 
+import traceback,asyncio
 if environ.get('SESSION1'):
    app1=Client(name="SCRAPPER1", session_string=environ['SESSION1'],in_memory=True)
 if environ.get('SESSION2'):
@@ -14,9 +15,9 @@ if environ.get('SESSION4'):
 if environ.get('LIMIT_COUNT'):
    LC=environ['LIMIT_COUNT']
 try:
-   OWNER_ID=environ['OWNER_ID']
+   OWNER_ID=int(environ['OWNER_ID'])
  #  CHANNEL_ID=environ['CHANNEL_ID']
-   DUMP_ID=environ['DUMP_ID']
+   DUMP_ID=int(environ['DUMP_ID'])
    API_ID=environ['API_ID']
    API_HASH=environ['API_HASH']
    BOT_TOKEN=environ['BOT_TOKEN']
@@ -80,6 +81,7 @@ async def add(bot,m):
                           await app4.add_chat_members(chat_id=DUMP_ID,user_ids=mem.user.id)
                        else:
                             await app1.add_chat_members(chat_id=DUMP_ID,user_ids=mem.user.id)
+                await asyncio.sleep(1)
                 except errors.UserAlreadyParticipant:
                     pass
                     print(f"{mem.user.id} User already Participated")
@@ -108,9 +110,11 @@ async def add(bot,m):
                            await m.reply("your current accounts are limited check @spambot")
                 except Exception as e:
                    print(e)
-                   await message.reply(e)
+                   print(traceback.format_exc())
       except Exception as e:
           print(e)
+          print(traceback.format_exc())
+          await m.reply(e)
 if __name__ == '__main__':
    bot.start()   
    bt=bot.get_me()
