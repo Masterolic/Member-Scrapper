@@ -2,7 +2,7 @@ from pyrogram import Client
 from pyrogram import filters,enums,errors,idle
 from dotenv import load_dotenv
 load_dotenv("config.env")
-from os import environ 
+from os import environ , remove 
 import traceback,asyncio
 if environ.get('SESSION1'):
    app1=Client(name="SCRAPPER1", session_string=environ['SESSION1'],in_memory=True)
@@ -84,41 +84,48 @@ async def add(bot,m):
                       if message.reply_to_message.text:
                          await app1.send_message(chat_id=mem.user.id,text=m.reply_to_message.text)
                       elif message.reply_to_message.photo:
-                          await app1.send_photo(chat_id=mem.user.id,photo=message.reply_to_message.photo.file_id,caption=message.reply_to_message.caption)
+                          path=await bot.download_media(message.reply_to_message.photo.file_id)
+                          await app1.send_photo(chat_id=mem.user.id,photo=path,caption=message.reply_to_message.caption)
                          
                    elif n % 4 == 2:
                       if 'app2' in locals():
-                         if message.reply_to_message.text:
+                         if message.reply_to_message.text:        
                             await app1.send_message(chat_id=mem.user.id,text=m.reply_to_message.text)
                          elif message.reply_to_message.photo:
-                            await app1.send_photo(chat_id=mem.user.id,photo=message.reply_to_message.photo.file_id,caption=message.reply_to_message.caption)
+                            path=await bot.download_media(message.reply_to_message.photo.file_id)
+                            await app1.send_photo(chat_id=mem.user.id,photo=path,caption=message.reply_to_message.caption)
                       else:
                          if message.reply_to_message.text:
                             await app1.send_message(chat_id=mem.user.id,text=m.reply_to_message.text)
                          elif message.reply_to_message.photo:
-                            await app1.send_photo(chat_id=mem.user.id,photo=message.reply_to_message.photo.file_id,caption=message.reply_to_message.caption)
+                            path=await bot.download_media(message.reply_to_message.photo.file_id)
+                            await app1.send_photo(chat_id=mem.user.id,photo=path,caption=message.reply_to_message.caption)
                    elif n % 4 == 3: 
                       if 'app3' in locals():
                           if message.reply_to_message.text:
                              await app1.send_message(chat_id=mem.user.id,text=m.reply_to_message.text)
                           elif message.reply_to_message.photo:
-                               await app1.send_photo(chat_id=mem.user.id,photo=message.reply_to_message.photo.file_id,caption=message.reply_to_message.caption)
+                               path=await bot.download_media(message.reply_to_message.photo.file_id)
+                               await app1.send_photo(chat_id=mem.user.id,photo=path,caption=message.reply_to_message.caption)
                       else:
                           if message.reply_to_message.text:
                              await app1.send_message(chat_id=mem.user.id,text=m.reply_to_message.text)
                           elif message.reply_to_message.photo:
-                             await app1.send_photo(chat_id=mem.user.id,photo=message.reply_to_message.photo.file_id,caption=message.reply_to_message.caption)
+                             path=await bot.download_media(message.reply_to_message.photo.file_id)
+                             await app1.send_photo(chat_id=mem.user.id,photo=path,caption=message.reply_to_message.caption)
                    else:
                        if 'app4' in locals():
                           if message.reply_to_message.text:
                              await app1.send_message(chat_id=mem.user.id,text=m.reply_to_message.text)
                           elif message.reply_to_message.photo:
-                               await app1.send_photo(chat_id=mem.user.id,photo=message.reply_to_message.photo.file_id,caption=message.reply_to_message.caption)
+                               path=await bot.download_media(message.reply_to_message.photo.file_id)
+                               await app1.send_photo(chat_id=mem.user.id,photo=path,caption=message.reply_to_message.caption)
                        else:
                             if message.reply_to_message.text:
                                await app1.send_message(chat_id=mem.user.id,text=m.reply_to_message.text)
                             elif message.reply_to_message.photo:
-                               await app1.send_photo(chat_id=mem.user.id,photo=message.reply_to_message.photo.file_id,caption=message.reply_to_message.caption)
+                               path=await bot.download_media(message.reply_to_message.photo.file_id)
+                               await app1.send_photo(chat_id=mem.user.id,photo=message.path,caption=message.reply_to_message.caption)
                    await asyncio.sleep(1)
                 except errors.UserPrivacyRestricted:
                     pass 
