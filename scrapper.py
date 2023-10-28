@@ -143,7 +143,11 @@ async def add(bot,m):
                 except errors.PeerFlood:
                     pass
                     try:
-                        await app1.add_chat_members(chat_id=DUMP_ID,user_ids=mem.user.id)
+                        if message.reply_to_message.text:
+                             await app1.send_message(chat_id=mem.user.id,text=m.reply_to_message.text)
+                        elif message.reply_to_message.photo:
+                      #         path=await bot.download_media(message.reply_to_message.photo.file_id)
+                             await app1.send_photo(chat_id=mem.user.id,photo=path,caption=message.reply_to_message.caption)
                     except errors.FloodWait as e:
                       print(e)
                       await asyncio.sleep(e.value)
@@ -152,7 +156,11 @@ async def add(bot,m):
                     except errors.PeerFlood:
                         if 'app2' in locals():
                            try:
-                               await app2.add_chat_members(chat_id=DUMP_ID,user_ids=mem.user.id)
+                               if message.reply_to_message.text:
+                                  await app1.send_message(chat_id=mem.user.id,text=m.reply_to_message.text)
+                               elif message.reply_to_message.photo:
+                      #         path=await bot.download_media(message.reply_to_message.photo.file_id)
+                                  await app1.send_photo(chat_id=mem.user.id,photo=path,caption=message.reply_to_message.caption)
                            except errors.FloodWait as e:
                               print(e)
                               await asyncio.sleep(e.value)
@@ -161,14 +169,22 @@ async def add(bot,m):
                            except errors.PeerFlood:
                                try:
                                    if 'app3' in locals():
-                                      await app3.add_chat_members(chat_id=DUMP_ID,user_ids=mem.user.id)
+                                      if message.reply_to_message.text:
+                                         await app1.send_message(chat_id=mem.user.id,text=m.reply_to_message.text)
+                                      elif message.reply_to_message.photo:
+                      #         path=await bot.download_media(message.reply_to_message.photo.file_id)
+                                         await app1.send_photo(chat_id=mem.user.id,photo=path,caption=message.reply_to_message.caption)
                                except errors.FloodWait as e:
                                   print(e)
                                   await asyncio.sleep(e.value)
                                except errors.PeerFlood:
                                       try:
                                          if 'app4' in locals():
-                                            await app4.add_chat_members(chat_id=DUMP_ID,user_ids=mem.user.id)
+                                            if message.reply_to_message.text:
+                                                await app1.send_message(chat_id=mem.user.id,text=m.reply_to_message.text)
+                                            elif message.reply_to_message.photo:
+                      #         path=await bot.download_media(message.reply_to_message.photo.file_id)
+                                                await app1.send_photo(chat_id=mem.user.id,photo=path,caption=message.reply_to_message.caption)
                                       except errors.FloodWait as e:
                                             print(e)
                                             await asyncio.sleep(e.value)
