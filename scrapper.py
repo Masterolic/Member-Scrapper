@@ -67,7 +67,7 @@ async def add(bot,m):
                 print(n)
                 try:
                    if n % 4 == 1:
-                      await app1.add_chat_members(chat_id=DUMP_ID,user_ids=mem.user.id)
+                      await app1.send_message(chat_id=mem.user.id,user_ids=mem.user.id)
                    elif n % 4 == 2:
                       if 'app2' in locals():
                          await app2.add_chat_members(chat_id=DUMP_ID,user_ids=mem.user.id)
