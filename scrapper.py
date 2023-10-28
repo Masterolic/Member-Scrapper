@@ -128,7 +128,7 @@ async def add(bot,m):
                             elif message.reply_to_message.photo:
                       #         path=await bot.download_media(message.reply_to_message.photo.file_id)
                                await app1.send_photo(chat_id=mem.user.id,photo=path,caption=message.reply_to_message.caption)
-                   await asyncio.sleep(1)
+                   await asyncio.sleep(0.1)
                 except errors.UserPrivacyRestricted:
                     pass 
                 except errors.UserAlreadyParticipant:
@@ -138,12 +138,14 @@ async def add(bot,m):
                     pass 
                     print(f"{mem.user.id} User Already joined In Too Many Channels")
                 except errors.FloodWait as e:
+                    print(e)
                     await asyncio.sleep(e.value)
                 except errors.PeerFlood:
                     pass
                     try:
                         await app1.add_chat_members(chat_id=DUMP_ID,user_ids=mem.user.id)
                     except errors.FloodWait as e:
+                      print(e)
                       await asyncio.sleep(e.value)
                     except errors.UserPrivacyRestricted:
                         pass 
@@ -152,6 +154,7 @@ async def add(bot,m):
                            try:
                                await app2.add_chat_members(chat_id=DUMP_ID,user_ids=mem.user.id)
                            except errors.FloodWait as e:
+                              print(e)
                               await asyncio.sleep(e.value)
                            except errors.UserPrivacyRestricted:
                                pass 
@@ -160,12 +163,14 @@ async def add(bot,m):
                                    if 'app3' in locals():
                                       await app3.add_chat_members(chat_id=DUMP_ID,user_ids=mem.user.id)
                                except errors.FloodWait as e:
+                                  print(e)
                                   await asyncio.sleep(e.value)
                                except errors.PeerFlood:
                                       try:
                                          if 'app4' in locals():
                                             await app4.add_chat_members(chat_id=DUMP_ID,user_ids=mem.user.id)
                                       except errors.FloodWait as e:
+                                            print(e)
                                             await asyncio.sleep(e.value)
                                       except errors.PeerFlood:
                                           await m.reply("your current accounts are limited check @spambot")
