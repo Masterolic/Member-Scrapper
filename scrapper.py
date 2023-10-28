@@ -53,7 +53,19 @@ async def add(bot,m):
              if 'app3' in locals():
                 await app3.start()
              if 'app4' in locals():
-                await app3.start()
+                await app4.start()
+             if 'app5' in locals():
+                await app5.start()
+             if 'app6' in locals():
+                await app6.start()
+             if 'app7' in locals():
+                await app7.start()
+             if 'app8' in locals():
+                await app8.start()
+             if 'app9' in locals():
+                await app9.start()
+             if 'app10' in locals():
+                await app10.start()
           except:
              pass 
           try:
@@ -127,9 +139,9 @@ async def add(bot,m):
                                await app1.send_message(chat_id=mem.user.id,text=m.reply_to_message.text)
                             elif message.reply_to_message.photo:
                       #         path=await bot.download_media(message.reply_to_message.photo.file_id)
-                               await app1.send_photo(chat_id=mem.user.id,photo=path,caption=message.reply_to_message.caption)
-                       continue 
+                               await app1.send_photo(chat_id=mem.user.id,photo=path,caption=message.reply_to_message.caption)     
                    await asyncio.sleep(0.1)
+                   continue 
                 except errors.UserPrivacyRestricted:
                     pass 
                 except errors.UserAlreadyParticipant:
@@ -190,7 +202,20 @@ async def add(bot,m):
                                             print(e)
                                             await asyncio.sleep(e.value)
                                       except errors.PeerFlood:
-                                          await m.reply("your current accounts are limited check @spambot")
+                                          get_bool=True 
+                                          for i in range(11):
+                                              if get_bool:
+                                                 try:
+                                                     if message.reply_to_message.text:
+                                                        await app{i}.send_message(chat_id=mem.user.id,text=m.reply_to_message.text)
+                                                     elif message.reply_to_message.photo:
+                      #         path=await bot.download_media(message.reply_to_message.photo.file_id)
+                                                         await app{i}.send_photo(chat_id=mem.user.id,photo=path,caption=message.reply_to_message.caption)
+                                                     get_bool=True
+                                                 except:
+                                                     pass
+                                          if not get_bool:
+                                             return await m.reply("your current accounts are limited check @spambot")
                         else:
                            return await m.reply("your current accounts are limited check @spambot")
                 except Exception as e:
@@ -220,7 +245,30 @@ if __name__ == '__main__':
       app4.start()
       ap4=app4.get_me()
       print(ap4.first_name)
-
+   if 'app5' in locals():
+      app5.start()
+      ap5=app5.get_me()
+      print(ap5.first_name)
+   if 'app6' in locals():
+      app6.start()
+      ap6=app6.get_me()
+      print(ap6.first_name)
+   if 'app7' in locals():
+      app7.start()
+      ap7=app7.get_me()
+      print(ap4.first_name)
+   if 'app8' in locals():
+      app8.start()
+      ap8=app8.get_me()
+      print(ap8.first_name)
+   if 'app9' in locals():
+      app9.start()
+      ap9=app9.get_me()
+      print(ap9.first_name)
+   if 'app10' in locals():
+      app10.start()
+      ap10=app10.get_me()
+      print(ap10.first_name)
 if 'app1' in locals():
    app1.stop()
 if 'app2' in locals():
@@ -229,4 +277,17 @@ if 'app3' in locals():
    app3.stop() 
 if 'app4' in locals():
    app4.stop()
+if 'app5' in locals():
+   app5.stop()
+if 'app6' in locals():
+   app6.stop()
+if 'app7' in locals():
+   app7.stop() 
+if 'app8' in locals():
+   app8.stop()
+if 'app9' in locals():
+   app9.stop()
+if 'app10' in locals():
+   app10.stop()  
 idle()
+   
