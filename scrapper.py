@@ -12,6 +12,18 @@ if environ.get('SESSION3'):
    app3=Client(name="SCRAPPER3", session_string=environ['SESSION3'],in_memory=True)
 if environ.get('SESSION4'):
    app4=Client(name="SCRAPPER4", session_string=environ['SESSION4'],in_memory=True)
+if environ.get('SESSION5'):
+   app1=Client(name="SCRAPPER5", session_string=environ['SESSION5'],in_memory=True)
+if environ.get('SESSION6'):
+   app2=Client(name="SCRAPPER6", session_string=environ['SESSION6'],in_memory=True)
+if environ.get('SESSION7'):
+   app3=Client(name="SCRAPPER7", session_string=environ['SESSION7'],in_memory=True)
+if environ.get('SESSION8'):
+   app4=Client(name="SCRAPPER8", session_string=environ['SESSION8'],in_memory=True) 
+if environ.get('SESSION9'):
+   app1=Client(name="SCRAPPER9", session_string=environ['SESSION9'],in_memory=True)
+if environ.get('SESSION10'):
+   app2=Client(name="SCRAPPER10", session_string=environ['SESSION10'],in_memory=True)
 if environ.get('LIMIT_COUNT'):
    LC=environ['LIMIT_COUNT']
 try:
