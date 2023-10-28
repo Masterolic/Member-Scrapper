@@ -84,41 +84,41 @@ async def add(bot,m):
                       if message.reply_to_message.text:
                          await app1.send_message(chat_id=mem.user.id,text=m.reply_to_message.text)
                       elif message.reply_to_message.photo:
-                          await app1.send_photo(chat_id=mem.user.id,photo=message.reply_to_message.photo.file_id,caption=message.reply_message.caption)
+                          await app1.send_photo(chat_id=mem.user.id,photo=message.reply_to_message.photo.file_id,caption=message.reply_to_message.caption)
                          
                    elif n % 4 == 2:
                       if 'app2' in locals():
                          if message.reply_to_message.text:
                             await app1.send_message(chat_id=mem.user.id,text=m.reply_to_message.text)
                          elif message.reply_to_message.photo:
-                            await app1.send_photo(chat_id=mem.user.id,photo=message.reply_to_message.photo.file_id,caption=message.reply_message.caption)
+                            await app1.send_photo(chat_id=mem.user.id,photo=message.reply_to_message.photo.file_id,caption=message.reply_to_message.caption)
                       else:
                          if message.reply_to_message.text:
                             await app1.send_message(chat_id=mem.user.id,text=m.reply_to_message.text)
                          elif message.reply_to_message.photo:
-                            await app1.send_photo(chat_id=mem.user.id,photo=message.reply_to_message.photo.file_id,caption=message.reply_message.caption)
+                            await app1.send_photo(chat_id=mem.user.id,photo=message.reply_to_message.photo.file_id,caption=message.reply_to_message.caption)
                    elif n % 4 == 3: 
                       if 'app3' in locals():
                           if message.reply_to_message.text:
                              await app1.send_message(chat_id=mem.user.id,text=m.reply_to_message.text)
                           elif message.reply_to_message.photo:
-                               await app1.send_photo(chat_id=mem.user.id,photo=message.reply_to_message.photo.file_id,caption=message.reply_message.caption)
+                               await app1.send_photo(chat_id=mem.user.id,photo=message.reply_to_message.photo.file_id,caption=message.reply_to_message.caption)
                       else:
                           if message.reply_to_message.text:
                              await app1.send_message(chat_id=mem.user.id,text=m.reply_to_message.text)
                           elif message.reply_to_message.photo:
-                             await app1.send_photo(chat_id=mem.user.id,photo=message.reply_to_message.photo.file_id,caption=message.reply_message.caption)
+                             await app1.send_photo(chat_id=mem.user.id,photo=message.reply_to_message.photo.file_id,caption=message.reply_to_message.caption)
                    else:
                        if 'app4' in locals():
                           if message.reply_to_message.text:
                              await app1.send_message(chat_id=mem.user.id,text=m.reply_to_message.text)
                           elif message.reply_to_message.photo:
-                               await app1.send_photo(chat_id=mem.user.id,photo=message.reply_to_message.photo.file_id,caption=message.reply_message.caption)
+                               await app1.send_photo(chat_id=mem.user.id,photo=message.reply_to_message.photo.file_id,caption=message.reply_to_message.caption)
                        else:
                             if message.reply_to_message.text:
                                await app1.send_message(chat_id=mem.user.id,text=m.reply_to_message.text)
                             elif message.reply_to_message.photo:
-                               await app1.send_photo(chat_id=mem.user.id,photo=message.reply_to_message.photo.file_id,caption=message.reply_message.caption)
+                               await app1.send_photo(chat_id=mem.user.id,photo=message.reply_to_message.photo.file_id,caption=message.reply_to_message.caption)
                    await asyncio.sleep(1)
                 except errors.UserPrivacyRestricted:
                     pass 
