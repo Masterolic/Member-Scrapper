@@ -94,33 +94,111 @@ async def add(bot,m):
                       return 
                 print(n)
                 try:
-                   if n % 4 == 1:
+                   if n % 9 == 1:
                       if message.reply_to_message.text:
                          await app1.send_message(chat_id=mem.user.id,text=m.reply_to_message.text)
                       elif message.reply_to_message.photo:
                          # path=await bot.download_media(message.reply_to_message.photo.file_id)
                           await app1.send_photo(chat_id=mem.user.id,photo=path,caption=message.reply_to_message.caption)
                          
-                   elif n % 4 == 2:
+                   elif n % 9 == 2:
                       if 'app2' in locals():
                          if message.reply_to_message.text:        
-                            await app1.send_message(chat_id=mem.user.id,text=m.reply_to_message.text)
+                            await app2.send_message(chat_id=mem.user.id,text=m.reply_to_message.text)
                          elif message.reply_to_message.photo:
                        #     path=await bot.download_media(message.reply_to_message.photo.file_id)
-                            await app1.send_photo(chat_id=mem.user.id,photo=path,caption=message.reply_to_message.caption)
+                            await app2.send_photo(chat_id=mem.user.id,photo=path,caption=message.reply_to_message.caption)
                       else:
                          if message.reply_to_message.text:
                             await app1.send_message(chat_id=mem.user.id,text=m.reply_to_message.text)
                          elif message.reply_to_message.photo:
                       #      path=await bot.download_media(message.reply_to_message.photo.file_id)
                             await app1.send_photo(chat_id=mem.user.id,photo=path,caption=message.reply_to_message.caption)
-                   elif n % 4 == 3: 
+                   elif n % 9 == 3: 
                       if 'app3' in locals():
+                          if message.reply_to_message.text:
+                             await app3.send_message(chat_id=mem.user.id,text=m.reply_to_message.text)
+                          elif message.reply_to_message.photo:
+                    #           path=await bot.download_media(message.reply_to_message.photo.file_id)
+                               await app3.send_photo(chat_id=mem.user.id,photo=path,caption=message.reply_to_message.caption)
+                      else:
                           if message.reply_to_message.text:
                              await app1.send_message(chat_id=mem.user.id,text=m.reply_to_message.text)
                           elif message.reply_to_message.photo:
+                     #        path=await bot.download_media(message.reply_to_message.photo.file_id)
+                             await app1.send_photo(chat_id=mem.user.id,photo=path,caption=message.reply_to_message.caption)
+                   elif n % 9 == 4: 
+                      if 'app4' in locals():
+                          if message.reply_to_message.text:
+                             await app4.send_message(chat_id=mem.user.id,text=m.reply_to_message.text)
+                          elif message.reply_to_message.photo:
                     #           path=await bot.download_media(message.reply_to_message.photo.file_id)
-                               await app1.send_photo(chat_id=mem.user.id,photo=path,caption=message.reply_to_message.caption)
+                               await app4.send_photo(chat_id=mem.user.id,photo=path,caption=message.reply_to_message.caption)
+                      else:
+                          if message.reply_to_message.text:
+                             await app1.send_message(chat_id=mem.user.id,text=m.reply_to_message.text)
+                          elif message.reply_to_message.photo:
+                     #        path=await bot.download_media(message.reply_to_message.photo.file_id)
+                             await app1.send_photo(chat_id=mem.user.id,photo=path,caption=message.reply_to_message.caption)
+                   elif n % 9 == 5: 
+                      if 'app5' in locals():
+                          if message.reply_to_message.text:
+                             await app5.send_message(chat_id=mem.user.id,text=m.reply_to_message.text)
+                          elif message.reply_to_message.photo:
+                    #           path=await bot.download_media(message.reply_to_message.photo.file_id)
+                               await app5.send_photo(chat_id=mem.user.id,photo=path,caption=message.reply_to_message.caption)
+                      else:
+                          if message.reply_to_message.text:
+                             await app1.send_message(chat_id=mem.user.id,text=m.reply_to_message.text)
+                          elif message.reply_to_message.photo:
+                     #        path=await bot.download_media(message.reply_to_message.photo.file_id)
+                             await app1.send_photo(chat_id=mem.user.id,photo=path,caption=message.reply_to_message.caption)
+                   elif n % 9 == 6: 
+                      if 'app6' in locals():
+                          if message.reply_to_message.text:
+                             await app6.send_message(chat_id=mem.user.id,text=m.reply_to_message.text)
+                          elif message.reply_to_message.photo:
+                    #           path=await bot.download_media(message.reply_to_message.photo.file_id)
+                               await app6.send_photo(chat_id=mem.user.id,photo=path,caption=message.reply_to_message.caption)
+                      else:
+                          if message.reply_to_message.text:
+                             await app1.send_message(chat_id=mem.user.id,text=m.reply_to_message.text)
+                          elif message.reply_to_message.photo:
+                     #        path=await bot.download_media(message.reply_to_message.photo.file_id)
+                             await app1.send_photo(chat_id=mem.user.id,photo=path,caption=message.reply_to_message.caption)
+                   elif n % 9 == 7: 
+                      if 'app7' in locals():
+                          if message.reply_to_message.text:
+                             await app7.send_message(chat_id=mem.user.id,text=m.reply_to_message.text)
+                          elif message.reply_to_message.photo:
+                    #           path=await bot.download_media(message.reply_to_message.photo.file_id)
+                               await app7.send_photo(chat_id=mem.user.id,photo=path,caption=message.reply_to_message.caption)
+                      else:
+                          if message.reply_to_message.text:
+                             await app1.send_message(chat_id=mem.user.id,text=m.reply_to_message.text)
+                          elif message.reply_to_message.photo:
+                     #        path=await bot.download_media(message.reply_to_message.photo.file_id)
+                             await app1.send_photo(chat_id=mem.user.id,photo=path,caption=message.reply_to_message.caption)
+                   elif n % 9 == 8: 
+                      if 'app8' in locals():
+                          if message.reply_to_message.text:
+                             await app8.send_message(chat_id=mem.user.id,text=m.reply_to_message.text)
+                          elif message.reply_to_message.photo:
+                    #           path=await bot.download_media(message.reply_to_message.photo.file_id)
+                               await app8.send_photo(chat_id=mem.user.id,photo=path,caption=message.reply_to_message.caption)
+                      else:
+                          if message.reply_to_message.text:
+                             await app1.send_message(chat_id=mem.user.id,text=m.reply_to_message.text)
+                          elif message.reply_to_message.photo:
+                     #        path=await bot.download_media(message.reply_to_message.photo.file_id)
+                             await app1.send_photo(chat_id=mem.user.id,photo=path,caption=message.reply_to_message.caption)
+                   elif n % 9 == 9: 
+                      if 'app9' in locals():
+                          if message.reply_to_message.text:
+                             await app9.send_message(chat_id=mem.user.id,text=m.reply_to_message.text)
+                          elif message.reply_to_message.photo:
+                    #           path=await bot.download_media(message.reply_to_message.photo.file_id)
+                               await app9.send_photo(chat_id=mem.user.id,photo=path,caption=message.reply_to_message.caption)
                       else:
                           if message.reply_to_message.text:
                              await app1.send_message(chat_id=mem.user.id,text=m.reply_to_message.text)
@@ -128,12 +206,12 @@ async def add(bot,m):
                      #        path=await bot.download_media(message.reply_to_message.photo.file_id)
                              await app1.send_photo(chat_id=mem.user.id,photo=path,caption=message.reply_to_message.caption)
                    else:
-                       if 'app4' in locals():
+                       if 'app10' in locals():
                           if message.reply_to_message.text:
-                             await app1.send_message(chat_id=mem.user.id,text=m.reply_to_message.text)
+                             await app10.send_message(chat_id=mem.user.id,text=m.reply_to_message.text)
                           elif message.reply_to_message.photo:
                       #         path=await bot.download_media(message.reply_to_message.photo.file_id)
-                               await app1.send_photo(chat_id=mem.user.id,photo=path,caption=message.reply_to_message.caption)
+                               await app10.send_photo(chat_id=mem.user.id,photo=path,caption=message.reply_to_message.caption)
                        else:
                             if message.reply_to_message.text:
                                await app1.send_message(chat_id=mem.user.id,text=m.reply_to_message.text)
