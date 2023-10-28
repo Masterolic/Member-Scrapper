@@ -297,10 +297,10 @@ async def add(bot,m):
                                               if get_bool:
                                                  try:
                                                      if message.reply_to_message.text:
-                                                        await app{i}.send_message(chat_id=mem.user.id,text=m.reply_to_message.text)
+                                                        await app[i].send_message(chat_id=mem.user.id,text=m.reply_to_message.text)
                                                      elif message.reply_to_message.photo:
                       #         path=await bot.download_media(message.reply_to_message.photo.file_id)
-                                                         await app{i}.send_photo(chat_id=mem.user.id,photo=path,caption=message.reply_to_message.caption)
+                                                         await app[i].send_photo(chat_id=mem.user.id,photo=path,caption=message.reply_to_message.caption)
                                                      get_bool=True
                                                  except:
                                                      pass
