@@ -52,6 +52,8 @@ async def add(bot,m):
               await m.reply("400: One Or More Your Accounts Can't Join Because Telegram Limited @spambot")
           except errors.UserChannelsTooMuch:
               await m.reply("400: One Or More Your Account Had Joined Too Many Groups/Channel")
+          except errors.UserPrivacyRestricted:
+              pass 
           except Exception as e:
               await m.reply(f"520: Error Occurred {e}")
           await m.reply("200: Masterolic Member Scrapper Rolling")
@@ -82,6 +84,8 @@ async def add(bot,m):
                        else:
                             await app1.add_chat_members(chat_id=DUMP_ID,user_ids=mem.user.id)
                    await asyncio.sleep(1)
+                except errors.UserPrivacyRestricted:
+                    pass 
                 except errors.UserAlreadyParticipant:
                     pass
                     print(f"{mem.user.id} User already Participated")
@@ -96,12 +100,16 @@ async def add(bot,m):
                         await app1.add_chat_members(chat_id=DUMP_ID,user_ids=mem.user.id)
                     except errors.FloodWait as e:
                       await asyncio.sleep(e.value)
+                    except errors.UserPrivacyRestricted:
+                        pass 
                     except errors.PeerFlood:
                         if 'app2' in locals():
                            try:
                                await app2.add_chat_members(chat_id=DUMP_ID,user_ids=mem.user.id)
                            except errors.FloodWait as e:
                               await asyncio.sleep(e.value)
+                           except errors.UserPrivacyRestricted:
+                               pass 
                            except errors.PeerFlood:
                                try:
                                    if 'app3' in locals():
