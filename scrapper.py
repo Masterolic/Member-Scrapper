@@ -128,6 +128,7 @@ async def add(bot,m):
                             elif message.reply_to_message.photo:
                       #         path=await bot.download_media(message.reply_to_message.photo.file_id)
                                await app1.send_photo(chat_id=mem.user.id,photo=path,caption=message.reply_to_message.caption)
+                       continue 
                    await asyncio.sleep(0.1)
                 except errors.UserPrivacyRestricted:
                     pass 
