@@ -45,6 +45,16 @@ async def add(bot,m):
              return 
           CHANNEL_ID=int(IPT)
           try:
+             await app1.start()
+             if 'app2' in locals():
+                await app2.start()
+             if 'app3' in locals():
+                await app3.start()
+             if 'app4' in locals():
+                await app3.start()
+          except:
+             pass 
+          try:
              await app1.join_chat(CHANNEL_ID)
              if 'app2' in locals():     
                 await app2.join_chat(CHANNEL_ID)
