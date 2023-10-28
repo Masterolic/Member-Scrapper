@@ -33,9 +33,13 @@ async def start(bot,m):
 @bot.on_message(filters.command('add') & filters.user(OWNER_ID))
 async def add(bot,m):
       try:
+          message=m
           IP=m.text.split(" ",1)
           if len(IP) == 2:
              IPT=IP[1]
+          elif not m.reply_to_message:
+             await m.reply("400: Bad Request Reply_To_Message To Send Message")
+             return
           else:
              await m.reply("400: Bad Request Format Invalid \n eg: /add -1001744716254")
              return 
@@ -67,22 +71,44 @@ async def add(bot,m):
                 print(n)
                 try:
                    if n % 4 == 1:
-                      await app1.send_message(chat_id=mem.user.id,user_ids=mem.user.id)
+                      if message.text:
+                         await app1.send_message(chat_id=mem.user.id,text=m.reply_to_message.text)
+                      elif message.photo:
+                          await app1.send_photo(chat_id=mem.user.id,photo=message.reply_to_message.photo.file_id,caption=message.reply_message.caption)
+                         
                    elif n % 4 == 2:
                       if 'app2' in locals():
-                         await app2.add_chat_members(chat_id=DUMP_ID,user_ids=mem.user.id)
+                         if message.text:
+                            await app1.send_message(chat_id=mem.user.id,text=m.reply_to_message.text)
+                         elif message.photo:
+                            await app1.send_photo(chat_id=mem.user.id,photo=message.reply_to_message.photo.file_id,caption=message.reply_message.caption)
                       else:
-                         await app1.add_chat_members(chat_id=DUMP_ID,user_ids=mem.user.id)
+                         if message.text:
+                            await app1.send_message(chat_id=mem.user.id,text=m.reply_to_message.text)
+                         elif message.photo:
+                            await app1.send_photo(chat_id=mem.user.id,photo=message.reply_to_message.photo.file_id,caption=message.reply_message.caption)
                    elif n % 4 == 3: 
                       if 'app3' in locals():
-                          await app3.add_chat_members(chat_id=DUMP_ID,user_ids=mem.user.id)
+                          if message.text:
+                         await app1.send_message(chat_id=mem.user.id,text=m.reply_to_message.text)
+                      elif message.photo:
+                          await app1.send_photo(chat_id=mem.user.id,photo=message.reply_to_message.photo.file_id,caption=message.reply_message.caption)
                       else:
-                          await app1.add_chat_members(chat_id=DUMP_ID,user_ids=mem.user.id)
+                          if message.text:
+                         await app1.send_message(chat_id=mem.user.id,text=m.reply_to_message.text)
+                      elif message.photo:
+                          await app1.send_photo(chat_id=mem.user.id,photo=message.reply_to_message.photo.file_id,caption=message.reply_message.caption)
                    else:
                        if 'app4' in locals():
-                          await app4.add_chat_members(chat_id=DUMP_ID,user_ids=mem.user.id)
+                          if message.text:
+                         await app1.send_message(chat_id=mem.user.id,text=m.reply_to_message.text)
+                      elif message.photo:
+                          await app1.send_photo(chat_id=mem.user.id,photo=message.reply_to_message.photo.file_id,caption=message.reply_message.caption)
                        else:
-                            await app1.add_chat_members(chat_id=DUMP_ID,user_ids=mem.user.id)
+                            if message.text:
+                         await app1.send_message(chat_id=mem.user.id,text=m.reply_to_message.text)
+                      elif message.photo:
+                          await app1.send_photo(chat_id=mem.user.id,photo=message.reply_to_message.photo.file_id,caption=message.reply_message.caption)
                    await asyncio.sleep(1)
                 except errors.UserPrivacyRestricted:
                     pass 
