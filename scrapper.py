@@ -191,7 +191,7 @@ async def add(bot,m):
                                       except errors.PeerFlood:
                                           await m.reply("your current accounts are limited check @spambot")
                         else:
-                           await m.reply("your current accounts are limited check @spambot")
+                           return await m.reply("your current accounts are limited check @spambot")
                 except Exception as e:
                    print(e)
                    print(traceback.format_exc())
