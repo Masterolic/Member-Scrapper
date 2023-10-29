@@ -28,7 +28,7 @@ if environ.get('LIMIT_COUNT'):
    LC=environ['LIMIT_COUNT']
 try:
    OWNER_ID=int(environ['OWNER_ID'])
- #  CHANNEL_ID=environ['CHANNEL_ID']
+   CHANNEL_ID=int(environ['CHANNEL_ID'])
    DUMP_ID=int(environ['DUMP_ID'])
    API_ID=environ['API_ID']
    API_HASH=environ['API_HASH']
@@ -49,12 +49,14 @@ async def add(bot,m):
           IP=m.text.split(" ",1)
           if len(IP) == 2:
              IPT=IP[1]
-          elif not m.reply_to_message:
+          else:
+             IPT=0
+          if not m.reply_to_message:
              await m.reply("400: Bad Request Reply_To_Message To Send Message")
              return
-          else:
-             await m.reply("400: Bad Request Format Invalid \n eg: /add -1001744716254")
-             return 
+      #    else:
+      #        await m.reply("400: Bad Request Format Invalid \n eg: /add -1001744716254")
+      #       return 
           if message.reply_to_message.photo:
              path=await bot.download_media(message.reply_to_message.photo.file_id)
           CHANNEL_ID=int(IPT)
@@ -101,6 +103,8 @@ async def add(bot,m):
           print("Masterolic Member Scrapper Rolling")
           async for mem in app1.get_chat_members(CHANNEL_ID):
                 n+=1
+                if not n >= IPT:
+                   continue 
                 if "LC" in locals():
                    if n >= int(environ['LIMIT_COUNT']):
                       return 
