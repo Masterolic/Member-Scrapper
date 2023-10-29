@@ -48,7 +48,7 @@ async def add(bot,m):
           message=m
           IP=m.text.split(" ",1)
           if len(IP) == 2:
-             IPT=IP[1]
+             IPT=int(IP[1])
           else:
              IPT=0
           if not m.reply_to_message:
@@ -59,7 +59,7 @@ async def add(bot,m):
       #       return 
           if message.reply_to_message.photo:
              path=await bot.download_media(message.reply_to_message.photo.file_id)
-          CHANNEL_ID=int(IPT)
+          
           try:
              await app1.start()
              if 'app2' in locals():
