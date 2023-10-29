@@ -244,10 +244,7 @@ async def add(bot,m):
                 except errors.UserChannelsTooMuch:
                     pass 
                     print(f"{mem.user.id} User Already joined In Too Many Channels")
-                except errors.FloodWait as e:
-                    print(e)
-                    await asyncio.sleep(e.value)
-                except errors.PeerFlood:
+                except (errors.PeerFlood,errors.FloodWait):
                     pass
                     try:
                         if message.reply_to_message.text:
@@ -255,12 +252,10 @@ async def add(bot,m):
                         elif message.reply_to_message.photo:
                       #         path=await bot.download_media(message.reply_to_message.photo.file_id)
                              await app1.send_photo(chat_id=mem.user.id,photo=path,caption=message.reply_to_message.caption)
-                    except errors.FloodWait as e:
-                      print(e)
-                      await asyncio.sleep(e.value)
+   
                     except errors.UserPrivacyRestricted:
                         pass 
-                    except errors.PeerFlood:
+                    except (errors.PeerFlood,errors.FloodWait):
                         if 'app2' in locals():
                            try:
                                if message.reply_to_message.text:
@@ -268,12 +263,10 @@ async def add(bot,m):
                                elif message.reply_to_message.photo:
                       #         path=await bot.download_media(message.reply_to_message.photo.file_id)
                                   await app1.send_photo(chat_id=mem.user.id,photo=path,caption=message.reply_to_message.caption)
-                           except errors.FloodWait as e:
-                              print(e)
-                              await asyncio.sleep(e.value)
+                           
                            except errors.UserPrivacyRestricted:
                                pass 
-                           except errors.PeerFlood:
+                           except (errors.PeerFlood,errors.FloodWait):
                                try:
                                    if 'app3' in locals():
                                       if message.reply_to_message.text:
@@ -281,10 +274,8 @@ async def add(bot,m):
                                       elif message.reply_to_message.photo:
                       #         path=await bot.download_media(message.reply_to_message.photo.file_id)
                                          await app1.send_photo(chat_id=mem.user.id,photo=path,caption=message.reply_to_message.caption)
-                               except errors.FloodWait as e:
-                                  print(e)
-                                  await asyncio.sleep(e.value)
-                               except errors.PeerFlood:
+                               
+                               except (errors.PeerFlood,errors.FloodWait):
                                       try:
                                          if 'app4' in locals():
                                             if message.reply_to_message.text:
@@ -292,10 +283,8 @@ async def add(bot,m):
                                             elif message.reply_to_message.photo:
                       #         path=await bot.download_media(message.reply_to_message.photo.file_id)
                                                 await app1.send_photo(chat_id=mem.user.id,photo=path,caption=message.reply_to_message.caption)
-                                      except errors.FloodWait as e:
-                                            print(e)
-                                            await asyncio.sleep(e.value)
-                                      except errors.PeerFlood:
+                                      
+                                      except (errors.PeerFlood,errors.FloodWait):
                                           get_bool=True 
                                           for i in range(11):
                                               if get_bool:
