@@ -116,7 +116,7 @@ async def add(bot,m):
                       elif message.reply_to_message.photo:
                          # path=await bot.download_media(message.reply_to_message.photo.file_id)
                           await app1.send_photo(chat_id=mem.user.id,photo=path,caption=message.reply_to_message.caption)
-                         
+                      continue     
                    elif n % 9 == 2:
                       if 'app2' in locals():
                          if message.reply_to_message.text:        
@@ -130,6 +130,7 @@ async def add(bot,m):
                          elif message.reply_to_message.photo:
                       #      path=await bot.download_media(message.reply_to_message.photo.file_id)
                             await app1.send_photo(chat_id=mem.user.id,photo=path,caption=message.reply_to_message.caption)
+                      continue 
                    elif n % 9 == 3: 
                       if 'app3' in locals():
                           if message.reply_to_message.text:
@@ -143,6 +144,7 @@ async def add(bot,m):
                           elif message.reply_to_message.photo:
                      #        path=await bot.download_media(message.reply_to_message.photo.file_id)
                              await app1.send_photo(chat_id=mem.user.id,photo=path,caption=message.reply_to_message.caption)
+                      continue       
                    elif n % 9 == 4: 
                       if 'app4' in locals():
                           if message.reply_to_message.text:
@@ -156,6 +158,7 @@ async def add(bot,m):
                           elif message.reply_to_message.photo:
                      #        path=await bot.download_media(message.reply_to_message.photo.file_id)
                              await app1.send_photo(chat_id=mem.user.id,photo=path,caption=message.reply_to_message.caption)
+                      continue
                    elif n % 9 == 5: 
                       if 'app5' in locals():
                           if message.reply_to_message.text:
@@ -182,6 +185,7 @@ async def add(bot,m):
                           elif message.reply_to_message.photo:
                      #        path=await bot.download_media(message.reply_to_message.photo.file_id)
                              await app1.send_photo(chat_id=mem.user.id,photo=path,caption=message.reply_to_message.caption)
+                      continue
                    elif n % 9 == 7: 
                       if 'app7' in locals():
                           if message.reply_to_message.text:
@@ -195,6 +199,7 @@ async def add(bot,m):
                           elif message.reply_to_message.photo:
                      #        path=await bot.download_media(message.reply_to_message.photo.file_id)
                              await app1.send_photo(chat_id=mem.user.id,photo=path,caption=message.reply_to_message.caption)
+                      continue
                    elif n % 9 == 8: 
                       if 'app8' in locals():
                           if message.reply_to_message.text:
@@ -208,6 +213,7 @@ async def add(bot,m):
                           elif message.reply_to_message.photo:
                      #        path=await bot.download_media(message.reply_to_message.photo.file_id)
                              await app1.send_photo(chat_id=mem.user.id,photo=path,caption=message.reply_to_message.caption)
+                      continue
                    elif n % 9 == 9: 
                       if 'app9' in locals():
                           if message.reply_to_message.text:
@@ -233,8 +239,8 @@ async def add(bot,m):
                                await app1.send_message(chat_id=mem.user.id,text=m.reply_to_message.text)
                             elif message.reply_to_message.photo:
                       #         path=await bot.download_media(message.reply_to_message.photo.file_id)
-                               await app1.send_photo(chat_id=mem.user.id,photo=path,caption=message.reply_to_message.caption)     
-                   await asyncio.sleep(0.1)
+                               await app1.send_photo(chat_id=mem.user.id,photo=path,caption=message.reply_to_message.caption)
+                       continue
                    continue 
                 except errors.UserPrivacyRestricted:
                     pass 
