@@ -172,6 +172,7 @@ async def add(bot,m):
                           elif message.reply_to_message.photo:
                      #        path=await bot.download_media(message.reply_to_message.photo.file_id)
                              await app1.send_photo(chat_id=mem.user.id,photo=path,caption=message.reply_to_message.caption)
+                      continue 
                    elif n % 9 == 6: 
                       if 'app6' in locals():
                           if message.reply_to_message.text:
